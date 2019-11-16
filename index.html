@@ -7,13 +7,22 @@
   <body>
 
   	<script>
-		var myArray = ['Rock', 'Paper', 'Scissors']
 
-		function computerplay (){
-			var random = myArray[Math.floor(Math.random() * myArray.length)]
-			return random;
+		function computerPlay (){
+			let choices = ['rock', 'paper', 'scissors'];
+			return choices[Math.floor(Math.random() * choices.length)];
 		}
-			
+		
+		function getWinner(playerSelection, computerSelection){
+			playerSelection = playerSelection.toLowerCase();
+			if (playerSelection === computerSelection) {
+				return playerSelection + ' VS ' + computerSelection + ' results in a tie!';
+			} else if (playerSelection === 'rock' && computerSelection === 'scissors' || playerSelection === 'scissors' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'rock') {
+				return 'The player wins! ' + playerSelection + ' defeats ' + computerSelection + '!';
+			} else {
+				return 'The computer won. ' + computerSelection + ' defeats ' + playerSelection + '!';
+			}
+		}
 
   	</script>
 
